@@ -1,14 +1,10 @@
 package com.java.game;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 public class PlayGame extends CoreLogic {
 	
-	private static List<Integer> moves = new ArrayList<>();
-
 	/**
 	 * This method accepts input from user
 	 * @param player
@@ -43,7 +39,6 @@ public class PlayGame extends CoreLogic {
 			if(column == -1) {
 				continue;
 			} else {
-				moves.add(column);
 				Set<Integer> moveList = addMoves(column, player);
 				if(moveList == null) {
 					System.out.println("This column is full, Please choose different move");
@@ -51,7 +46,6 @@ public class PlayGame extends CoreLogic {
 				}
 				System.out.println();
 				printMoveStatus();
-				System.out.println(moves);
 				if(validateWinner(player)) {
 					String name = PLAYER_1.equals(player) ? "Player 1 [RED] " : "Player 2 [Green] ";
 					System.out.println(name + " wins the game");
